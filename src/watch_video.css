@@ -1,0 +1,8 @@
+#fef {
+  display: flex;
+  justify-content: center;
+}
+
+#imageVideo {
+  border: 2px black solid;
+}

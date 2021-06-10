@@ -1,0 +1,70 @@
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+
+nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  /* justify-content: center; */
+  min-height: 8vh;
+  /* background-color: #1ca4f3; */
+  border-radius: 4px;
+}
+
+#header {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: 25px;
+}
+
+#navbar-list {
+  display: flex;
+
+  justify-content: space-around;
+  width: 50%;
+}
+
+li {
+  float: right;
+}
+
+#searchInput {
+  border: none;
+  width: 80%;
+  outline: none;
+  font-size: 13px;
+  background-color: none;
+}
+
+#searchBox {
+  border: 1px solid black;
+  width: 290px;
+  height: 23px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  margin: auto;
+  background-color: none;
+  z-index: 0;
+}
+
+#search-btn {
+  background-color: white;
+  border: none;
+}
+
+#searchIcon {
+  width: 15px;
+  height: 15px;
+}

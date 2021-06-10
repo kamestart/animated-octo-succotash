@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: cursive;
+  font-size: 16px;
+  margin: 20px;
+}
+.progress {
+  width: 100%;
+  background-color: #c9c9c9;
+  border-radius: 20px;
+  justify-self: center;
+}
+
+.progress .value {
+  background-color: #7cc4ff;
+  display: inline-block;
+  height: 100%;
+}
+
+#upload-video {
+  display: grid;
+  justify-content: center;
+  text-align: center;
+}
+
+#create-btn {
+  align-self: center;
+  cursor: pointer;
+  background-color: rgb(56, 221, 221);
+  border-radius: 5px;
+  border: none;
+  width: 170px;
+  height: 40px;
+  outline: none;
+}
+
+#create-btn:hover {
+  box-shadow: 0px 3px 3px grey;
+}
