@@ -5,7 +5,7 @@ export const Video = ({ myVideo }) => {
 
     const [Link, setLink] = useState("")
     const [abc, setAbc] = useState(true)
-
+    
     if(abc) {
         setLink(process.env.REACT_APP_SERVER)
         setAbc(false)
@@ -14,7 +14,7 @@ export const Video = ({ myVideo }) => {
     return (
         <div>
            
-            <a href={Link + "watch_video/" + myVideo._id}>
+            <a href={window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/watch_video/" + myVideo._id}>
                 <img
                  src={Link + "videos/get_one_thumbnail/" + myVideo.thumbnailFileName}
                  alt="thumbnail"
