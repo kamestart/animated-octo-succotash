@@ -9,7 +9,7 @@ const SearchBar = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const abc = Search
-        var searchUrl = 'http://localhost:3000/search/' + abc 
+        var searchUrl = window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + '/search/' + abc 
         window.location = searchUrl
     }       
 
