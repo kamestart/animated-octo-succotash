@@ -16,8 +16,8 @@ const LoginForm = () => {
         const password = Password
 
         var payload = JSON.stringify({ name, password })
-
-        axios.post('http://localhost:5500/userSystems/login', { payload }, {
+        const abc = process.env.REACT_APP_SERVER
+        axios.post(abc + 'userSystems/login', { payload }, {
             headers: {
                 'Content-type': 'application/json'
             }
@@ -35,8 +35,9 @@ const LoginForm = () => {
 
     
     const userAuthenticated = () => {
-
-        axios.post('http://localhost:5500/userSystems/currentUserInfo', {sid: localStorage.getItem('sid')}, {
+      
+        const abc = process.env.REACT_APP_SERVER
+        axios.post(abc + 'userSystems/currentUserInfo', {sid: localStorage.getItem('sid')}, {
             headers: {
                 'x-access-token': localStorage.getItem('token'),
                 'Content-type': 'application/json'

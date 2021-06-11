@@ -10,8 +10,8 @@ const Logout = () => {
 
 
     const logOut = () => {
-    
-        axios.post('http://localhost:5500/userSystems/logout', {sid: localStorage.getItem('sid')}, {
+        const abc = process.env.REACT_APP_SERVER
+        axios.post(abc + 'userSystems/logout', {sid: localStorage.getItem('sid')}, {
             headers: {
                 'Content-type': 'application/json',
             }

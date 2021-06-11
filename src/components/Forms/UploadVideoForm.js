@@ -16,9 +16,10 @@ export const UploadVideoForm = () => {
         e.preventDefault();
         const formData = new FormData();
         formData.append("file", File);   
+        const abc = process.env.REACT_APP_SERVER
 
         try {
-            await axios.post('http://localhost:5500/videos/create_video', formData, {
+            await axios.post(abc + '/videos/create_video', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     // 'Access-Control-Request-Headers': 'Origin, X-Requested-With, Content-type, Accept,  X-Custom-Header',

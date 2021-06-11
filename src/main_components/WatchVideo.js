@@ -6,11 +6,11 @@ export const WatchVideo = () => {
     
     const {videoId} = useParams()
     console.log(videoId)
-
+    const abc = process.env.REACT_APP_SERVER
 
     return (
         <div id="fef">
-            <video autoPlay id="video_play" style={{ width: 600 }} src={"http://localhost:5500/videos/get_one/"+videoId} controls></video>
+            <video autoPlay id="video_play" style={{ width: 600 }} src={abc + "videos/get_one/"+videoId} controls></video>
         </div>
     )
 }

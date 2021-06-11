@@ -3,11 +3,12 @@ import axios from 'axios';
 
 const Index = () => {
 
+    const abc = process.env.REACT_APP_SERVER
 
     const [username, setUsername] = useState("")
 
     const getUserData = () => {
-        axios.post('http://localhost:5500/userSystems/currentUserInfo', {sid: localStorage.getItem('sid')}, {
+        axios.post(abc +'userSystems/currentUserInfo', {sid: localStorage.getItem('sid')}, {
             headers: {
                 'x-access-token': localStorage.getItem('token'),
                 'Content-type': 'application/json'
@@ -31,6 +32,7 @@ const Index = () => {
     } else {
         return(
             <div>
+                {console.log(process.env.REACT_APP_KEY)}
                 Hi!
             </div>
         )

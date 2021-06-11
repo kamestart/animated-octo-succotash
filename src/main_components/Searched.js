@@ -12,7 +12,8 @@ export const Searched =  () => {
     const {query} = useParams()
 
     if(ShouldIFetchVideoResults) {
-        axios.post('http://localhost:5500/videos/getVideoSearchResults', { searched: query }, {
+        const abc = process.env.REACT_APP_SERVER
+        axios.post(abc + 'videos/getVideoSearchResults', { searched: query }, {
             headers: {
                 'Content-Type': 'application/json'
             }

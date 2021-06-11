@@ -8,7 +8,9 @@ const UploadVideoForm3 = () => {
     const [username, setUsername] = useState("")
 
     const getUserData = () => {
-        axios.post('http://localhost:5500/userSystems/currentUserInfo', {sid: localStorage.getItem('sid')}, {
+
+        const abc = process.env.REACT_APP_SERVER
+        axios.post(abc + 'userSystems/currentUserInfo', {sid: localStorage.getItem('sid')}, {
             headers: {
                 'Content-type': 'application/json'
             }
@@ -22,10 +24,12 @@ const UploadVideoForm3 = () => {
         console.log('efrfe')
         await getUserData()
         e.preventDefault()
+
+        const abc = process.env.REACT_APP_SERVER
         try {
             const thmbFileName = localStorage.getItem('thumbnailFileName')
             const videoFileName = localStorage.getItem('videoFileName')
-            await axios.post('http://localhost:5500/videos/create_video_pt_3', { thumbnailFileName: thmbFileName, videoFileName: videoFileName, title: title, description: desciprtion }, {
+            await axios.post(abc + 'videos/create_video_pt_3', { thumbnailFileName: thmbFileName, videoFileName: videoFileName, title: title, description: desciprtion }, {
                 headers: {
                     'Content-type': 'application/json'
                 }

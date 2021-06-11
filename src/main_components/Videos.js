@@ -1,9 +1,12 @@
 import React from 'react'
 
 export const Videos = () => {
+    let abc;
     return (
+        
         <div>
-            <a href="http://localhost:3000/uploadVideo">create a new video</a>
+            { abc = process.env.REACT_APP_SERVER }
+            <a href={abc +  "uploadVideo"}>create a new video</a>
         </div>
     )
 }
