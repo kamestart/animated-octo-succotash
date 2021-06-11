@@ -1,22 +1,22 @@
 import React, { useState } from 'react'
 import '../watch_video.css'
 
-export const Video = (myVideo) => {
+export const Video = ({ myVideo }) => {
 
     const [Link, setLink] = useState("")
     const [abc, setAbc] = useState(true)
 
     if(abc) {
-        setLink(window.location.protocol + "//" + window.location.hostname + ":" + window.location.port + "/")
+        setLink(process.env.REACT_APP_SERVER + "/")
         setAbc(false)
     }
 
     return (
         <div>
            
-            <a href={Link + "watch_video/" + myVideo.myVideo._id}>
+            <a href={Link + "watch_video/" + myVideo._id}>
                 <img
-                 src={Link + "videos/get_one_thumbnail/" + myVideo.myVideo.thumbnailFileName}
+                 src={Link + "videos/get_one_thumbnail/" + myVideo.thumbnailFileName}
                  alt="thumbnail"
                  id="imageVideo"
                 >
