@@ -7,7 +7,7 @@ export const Video = ({ myVideo }) => {
     const [abc, setAbc] = useState(true)
 
     if(abc) {
-        setLink(process.env.REACT_APP_SERVER + "/")
+        setLink(process.env.REACT_APP_SERVER)
         setAbc(false)
     }
 
