@@ -36,7 +36,9 @@ const RegisterForm = (props) => {
 
         var bodymine = JSON.stringify({ username, password , captcha  })
 
-       await axios.post('http://localhost:5500/userSystems/register', { bodymine }, {
+        const abc = process.env.REACT_APP_SERVER
+
+       await axios.post(abc + 'userSystems/register', { bodymine }, {
                 headers: { 
                     'Content-type': 'application/json',
                     // 'Access-Control-Request-Headers': 'Origin, X-Requested-With, Content-type, Accept,  X-Custom-Header',
