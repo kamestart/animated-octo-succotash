@@ -19,7 +19,7 @@ export const UploadVideoForm = () => {
         const abc = process.env.REACT_APP_SERVER
 
         try {
-            await axios.post(abc + '/videos/create_video', formData, {
+            await axios.post(abc + 'videos/create_video', formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     // 'Access-Control-Request-Headers': 'Origin, X-Requested-With, Content-type, Accept,  X-Custom-Header',
