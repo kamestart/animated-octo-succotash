@@ -23,7 +23,7 @@ export const Video = ({ myVideo }) => {
                 </img>
                 <br />
                 <div>
-                <h5><b>{ myVideo.myVideo.originalName} </b></h5>
+                <h5><b>{ myVideo.originalName} </b></h5>
                 </div>
                 </a>
             <br/>
