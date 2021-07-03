@@ -28,6 +28,7 @@ const LoginForm = () => {
                 setLoginStatus(true)
                 localStorage.setItem("token", res.data.token)
                 localStorage.setItem("sid", res.data.sidd)
+                localStorage.setItem('login', true)
             }
         })
 

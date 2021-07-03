@@ -1,7 +1,6 @@
 import './App.css';
 import './navbar.css'
 import About from './main_components/About';
-import Chat from './main_components/Chat';
 import Login from './main_components/Login';
 import Register from './main_components/Register';
 import Navbar from './components/Navbar';
@@ -16,11 +15,23 @@ import { WatchVideo } from './main_components/WatchVideo';
 import { Searched } from './main_components/Searched';
 import { Videos } from './main_components/Videos';
 import { Animate } from './main_components/Animate';
+import { useEffect } from 'react';
+import { LiveCodeChallengeEditor } from './main_components/LiveCodeChallengeEditor';
 
 
 function App() {
   
   
+    const script3 = document.createElement('script');
+    
+    script3.defer = true;
+    script3.src = "/js/main.js";
+  
+    script3.data = localStorage.getItem('videoIods');
+
+    document.body.appendChild(script3);
+  
+
   return (
     <Router>
       <div className="App">
@@ -28,7 +39,6 @@ function App() {
         <Switch>
           <Route path="/" exact component={Index} />
           <Route path="/about" exact component={About} />
-          <Route path="/chat" exact component={Chat} />
           <Route path="/login" exact component={Login} />
           <Route path="/register" exact component={Register} />
           <Route path="/uploadVideo" exact component={Upload_video_pt_1} />
@@ -39,7 +49,9 @@ function App() {
           <Route path="/search/:query" exact component={Searched}/>
           <Route path="/videos" exact component={Videos}/>
           <Route path="/new/video/animated" exact component={Animate}/>
+          <Route path="/puzzle/LiveEditor/:id" exact component={LiveCodeChallengeEditor}/>
         </Switch>
+        <script id="searcher" defer={true} src="/js/main.js" datavidids={localStorage.getItem('videoIdos')}/>
       </div>
     </Router>
   );

@@ -29,8 +29,9 @@ const UploadVideoForm3 = () => {
         try {
             const thmbFileName = localStorage.getItem('thumbnailFileName')
             const videoFileName = localStorage.getItem('videoFileName')
-            await axios.post(abc + 'videos/create_video_pt_3', { thumbnailFileName: thmbFileName, videoFileName: videoFileName, title: title, description: desciprtion }, {
+            await axios.post(abc + 'videos/create_video_pt_3', { thumbnailFileName: thmbFileName, videoFileName: videoFileName, title: title, description: desciprtion, sid: localStorage.getItem('sid')}, {
                 headers: {
+                    'x-access-token': localStorage.getItem('token'),
                     'Content-type': 'application/json'
                 }
             })

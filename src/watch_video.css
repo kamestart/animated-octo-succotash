@@ -6,3 +6,8 @@
 #imageVideo {
   border: 2px black solid;
 }
+
+#video_play {
+  width: 700px;
+  height: 400px;
+}

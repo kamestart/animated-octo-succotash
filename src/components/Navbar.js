@@ -2,6 +2,7 @@ import NLI from './ChildrenComponents/NLI'
 import React, {useState} from 'react';
 import LoginRegister from './Forms/LoginRegister';
 import SearchBar from './ChildrenComponents/SearchBar';
+import { UserElement } from './Forms/UserElement';
 // import SearchBar from './ChildrenComponents/SearchBar'
 
 const Navbar = () => {
@@ -24,6 +25,12 @@ const Navbar = () => {
                     ) }
                     <NLI link="/videos" name="Videos"/>
                     <NLI link="/about" name="About"/>
+
+                    { isLoggedIn ? (
+                       <UserElement />
+                    ) : (
+                        <p></p>
+                    ) }
                     
                 </ul>
             </nav>
