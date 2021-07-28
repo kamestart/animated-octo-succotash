@@ -1,17 +1,14 @@
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { Video } from './Video'
 
 export const Searched =  () => {
 
     const [searchResults, setSearchResults] = useState()
-    const [ShouldIFetchVideoResults, setShouldIFetchVideoResults] = useState(true)
-    const [shouldIRender, setShouldIRender] = useState(false)
+    const [hello, sethello] = useState(true)
 
-    const {query} = useParams()
-
-    if(ShouldIFetchVideoResults) {
+    function geteData() {
         const abc = process.env.REACT_APP_SERVER
         axios.post(abc + 'videos/getVideoSearchResults', { searched: query }, {
             headers: {
@@ -19,30 +16,51 @@ export const Searched =  () => {
             }
         }).then(res => {
             setSearchResults(res.data.videos)
-            setShouldIRender(true)
-            setShouldIFetchVideoResults(false)
         })
-       
     }
 
-    if(shouldIRender) {
-        return (
+    const {query} = useParams()
+
+    if(hello){
+        geteData()
+        setTimeout(() => {
+            console.log(searchResults)
+        }, 200)
+        
+        sethello(false)
+    }        
+
+        
+    
+
+    return (
+        <div>
+        { searchResults !== undefined && searchResults.length !== 0  ? (
             <div>
-                <br />
-                <br />
-                <br />
+            <br />
+            <br />
+            <br />
 
-                {searchResults.map((myVideeo) => (
-                   <Video myVideo={myVideeo}/>
-                ))}
-                <br />
-                <br />
-
+            {searchResults.map((myVideeo) => (
+               <Video myVideo={myVideeo}/>
+            ))}
+            <br />
+            <br />
             </div>
-        )
-    } else {
-        return (
-            <h1>vfewr</h1>
-        )
-    }
+        
+        ) : ((searchResults === undefined) ? (
+
+
+            <div>
+            Loding Results...
+        </div>   
+        ) : (
+            <div>
+            no results found...
+        </div>
+             
+        ))}
+        </div>
+        
+    )
 }

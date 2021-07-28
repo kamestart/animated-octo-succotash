@@ -1,0 +1,12 @@
+#codepen {
+  width: 100%;
+}
+
+textarea {
+  width: 32.7%;
+  border-radius: 7px;
+  /*   white-space: nowrap; */
+  resize: none;
+  float: left;
+  height: 300px;
+}

@@ -1,3 +1,7 @@
+body {
+  overflow: hidden;
+}
+
 ul {
   list-style: none;
 }
@@ -9,32 +13,33 @@ a {
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 nav {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  /* justify-content: center; */
-  min-height: 8vh;
-  /* background-color: #1ca4f3; */
-  border-radius: 4px;
 }
 
 #header {
+  margin-top: 1%;
   text-transform: uppercase;
   letter-spacing: 5px;
-  font-size: 25px;
+  font-size: 1.7rem;
+  font-weight: 500;
 }
 
 #navbar-list {
   display: flex;
   justify-content: space-around;
   width: 60%;
+  margin-top: 1%;
 }
 
 li {
-  float: right;
+  margin-left: 5rem;
+  list-style: none;
 }
 
 #searchInput {
@@ -47,7 +52,7 @@ li {
 
 #searchBox {
   border: 1px solid black;
-  width: 290px;
+  width: 17vw;
   height: 23px;
   display: flex;
   align-items: center;
@@ -56,6 +61,7 @@ li {
   margin: auto;
   background-color: none;
   z-index: 0;
+  /* background-color: cyan; */
 }
 
 #search-btn {
@@ -66,4 +72,82 @@ li {
 #searchIcon {
   width: 15px;
   height: 15px;
+}
+
+#hamburger {
+  display: none;
+  z-index: 100;
+}
+
+.bar {
+  display: block;
+  width: 25px;
+  height: 3px;
+  margin: 5px auto;
+  -webkit-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  background-color: #101010;
+}
+
+@media only screen and (max-width: 868px) {
+  #navbar-list {
+    margin-top: -210%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* justify-content: center; */
+    min-height: 8vh;
+    /* background-color: #1ca4f3; */
+    border-radius: 4px;
+
+    top: 1rem;
+    flex-direction: column;
+    width: 100%;
+    transition: 0.3s;
+  }
+  #header {
+    position: absolute;
+    top: 0%;
+    left: 10%;
+    /* display: none; */
+  }
+
+  #hamburger.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  #hamburger.active .bar:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  #hamburger.active .bar:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  #navbar-list.active {
+    margin-top: 0;
+  }
+
+  #serachBox {
+    border: 1px solid black;
+    width: 120vw;
+    height: 23px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    margin: auto;
+    background-color: none;
+    z-index: 0;
+  }
+
+  li {
+    margin: 2.5rem 0;
+  }
+
+  #hamburger {
+    display: block;
+    cursor: pointer;
+    margin-left: 70%;
+  }
 }

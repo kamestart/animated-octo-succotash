@@ -1,0 +1,58 @@
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+}
+
+#infoBar {
+  opacity: 0;
+  display: flex;
+  height: 18vh;
+  border-radius: 8px;
+  margin-top: 75vh;
+  margin-left: 75vw;
+  width: 20vw;
+  background-color: #fcba03;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+  box-shadow: 0px 0px 20px;
+}
+
+#content {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  width: 20vw;
+  justify-content: space-around;
+  height: 23vh;
+  font-size: 2.5vw;
+}
+
+#text {
+  font-size: calc(1.25vw - 0.1vh);
+}
+
+.transTop {
+  -webkit-transition: 1.5s;
+  -moz-transition: 1.5s;
+  -ms-transition: 1.5s;
+  -o-transition: 1.5s;
+  transition: 1.5s;
+  opacity: 0 !important;
+}
+
+.transBottom {
+  -webkit-transition: 1.5s;
+  -moz-transition: 1.5s;
+  -ms-transition: 1.5s;
+  -o-transition: 1.5s;
+  transition: 1.5s;
+  opacity: 1 !important;
+}
+
+#closeInfoPopupBtn {
+  margin-top: -31%;
+  margin-right: 2%;
+}
