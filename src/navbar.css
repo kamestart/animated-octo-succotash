@@ -52,8 +52,8 @@ li {
 
 #searchBox {
   border: 1px solid black;
-  width: 17vw;
-  height: 23px;
+  width: 15vw;
+  height: 3vh;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -128,14 +128,14 @@ li {
     margin-top: 0;
   }
 
-  #serachBox {
+  #searchBox {
     border: 1px solid black;
-    width: 120vw;
-    height: 23px;
+    width: 70vw;
+    height: 4vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 10px;
+    /* border-radius: 10px; */
     margin: auto;
     background-color: none;
     z-index: 0;

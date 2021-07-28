@@ -21,30 +21,46 @@ const UploadVideoForm3 = () => {
 
 
     const submitForm = async (e) => {
-        console.log('efrfe')
-        await getUserData()
         e.preventDefault()
+        console.log('efrfe')
+        if (localStorage.getItem('sid') !== null && localStorage.getItem('sid') !== "" && localStorage.getItem('sid') !== undefined) {
+            await getUserData()
+            
+            const abc = process.env.REACT_APP_SERVER
+            try {
+                const thmbFileName = localStorage.getItem('thumbnailFileName')
+                const videoFileName = localStorage.getItem('videoFileName')
+                await axios.post(abc + 'videos/create_video_pt_3', { thumbnailFileName: thmbFileName, videoFileName: videoFileName, title: title, description: desciprtion, sid: localStorage.getItem('sid')}, {
+                    headers: {
+                        'x-access-token': localStorage.getItem('token'),
+                        'Content-type': 'application/json'
+                    }
+                })
+                .then(res => {
+                    if(res.data.success) {
+                        alert('video uploaded!')
+                    } else {
+                        alert('subject 34-c expirement test results negative..... pleeeeeaaaase bring in subject 35-c (from ant-man)')
+                    }
+                })
+            } catch(e) {
+                 console.log(e);
+            }
+        } else {
+            document.getElementById('infoBar').classList.remove('transTop')
+            document.getElementById('infoBar').classList.add('transBottom')
+            document.getElementById('text33').innerText = "You Must Login To Continue"
 
-        const abc = process.env.REACT_APP_SERVER
-        try {
-            const thmbFileName = localStorage.getItem('thumbnailFileName')
-            const videoFileName = localStorage.getItem('videoFileName')
-            await axios.post(abc + 'videos/create_video_pt_3', { thumbnailFileName: thmbFileName, videoFileName: videoFileName, title: title, description: desciprtion, sid: localStorage.getItem('sid')}, {
-                headers: {
-                    'x-access-token': localStorage.getItem('token'),
-                    'Content-type': 'application/json'
-                }
-            })
-            .then(res => {
-                if(res.data.success) {
-                    alert('video uploaded!')
-                } else {
-                    alert('subject 34-c expirement test results negative..... pleeeeeaaaase bring in subject 35-c (from ant-man)')
-                }
-            })
-        } catch(e) {
-            console.log(e);
+            setTimeout(() => {
+                document.getElementById('infoBar').classList.add('transTop')
+                document.getElementById('infoBar').classList.remove('transBottom')
+            }, 6000);
+
         }
+        
+        
+
+        
     }
 
     return (

@@ -41,13 +41,7 @@ export const UploadVideoForm = () => {
             })
             
         } catch (err) {
-           if (err) {
-               if (err.response.status === 500) {
-                   setMessage('There Was A problem with the server')
-               } else {
-                   setMessage(err.response.data.msg)
-               }
-           } 
+           console.error(err)
         }
     } 
 
