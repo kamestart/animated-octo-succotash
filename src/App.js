@@ -20,28 +20,30 @@ import { LiveCodeChallengeEditor } from './main_components/LiveCodeChallengeEdit
 import { InfoBar } from './components/ChildrenComponents/InfoBar';
 import { NewChallenge } from './components/Forms/NewChallenge';
 import { Page404 } from './main_components/Page404';
-import './codepen.css'
+import './codepen.css';
+import {CodeGame} from './main_components/CodeGame';
 
 function App() {
-  
-  
+
+
     const script3 = document.createElement('script');
-    
+
     script3.defer = true;
     script3.src = "/js/main.js";
-  
+
     script3.data = localStorage.getItem('videoIods');
 
     document.body.appendChild(script3);
-  
+
 
   return (
     <Router>
       <div className="App">
         <InfoBar text="Finally i acomplished my challenge to create a information popup"/>
-        
+
         <div style={{position: 'fixed', top: '0%', width: '100%'}}>
         <Navbar />
+        <div style={{display: 'flex', alignItems: 'center', justifyContent: 'center'}}>
           <Switch>
             <Route path="/" exact component={Index} />
             <Route path="/about" exact component={About} />
@@ -58,9 +60,11 @@ function App() {
             <Route path="/puzzle/LiveEditor/:id" exact component={LiveCodeChallengeEditor}/>
             <Route path="/puzzle/new" exact component={NewChallenge}/>
             <Route component={Page404}/>
+            <Route path="/codeGame" component={CodeGame} />
           </Switch>
+          </div>
         </div>
-        
+
         <script id="searcher" defer={true} src="/js/main.js" datavidids={localStorage.getItem('videoIdos')}/>
       </div>
     </Router>
