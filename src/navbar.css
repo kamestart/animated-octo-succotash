@@ -1,5 +1,6 @@
 body {
-  overflow: hidden;
+  overflow-x: hidden;
+  overflow-y: scroll;
 }
 
 ul {
@@ -88,8 +89,10 @@ li {
   transition: all 0.3s ease-in-out;
   background-color: #101010;
 }
-
-@media only screen and (max-width: 868px) {
+#mainc {
+  overflow: hidden;
+}
+@media only screen and (max-width: 1142px) {
   #navbar-list {
     margin-top: -210%;
     display: flex;

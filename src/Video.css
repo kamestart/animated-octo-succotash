@@ -1,0 +1,11 @@
+#imageVideo {
+  width: 18vw;
+  height: 20vh;
+}
+
+@media only screen and (max-width: 868px) {
+  #imageVideo {
+    width: 23vw;
+    height: 10vh;
+  }
+}

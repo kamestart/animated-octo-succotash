@@ -23,6 +23,9 @@ const LoginForm = () => {
             }
         }).then((res) => {
             if (!res.data.auth) {
+                if (res.data.err === "wrong_name") {
+                    alert('Incorrect Username Or Password')
+                }
                 setLoginStatus(false)
             } else {
                 setLoginStatus(true)
@@ -34,11 +37,11 @@ const LoginForm = () => {
 
     }
 
-    
+
     const userAuthenticated = () => {
-      
+
         const abc = process.env.REACT_APP_SERVER
-        axios.post(abc + 'userSystems/currentUserInfo', {sid: localStorage.getItem('sid')}, {
+        axios.post(abc + 'userSystems/currentUserInfo', { sid: localStorage.getItem('sid') }, {
             headers: {
                 'x-access-token': localStorage.getItem('token'),
                 'Content-type': 'application/json'
@@ -51,10 +54,10 @@ const LoginForm = () => {
     return (
         <div>
             <form action="login" method="POST" onSubmit={handleSubmit}>
-                <input type="text" name="username" required={true} placeholder="Username" onChange={(e) => {setName(e.target.value) }} />
+                <input type="text" name="username" required={true} placeholder="Username" onChange={(e) => { setName(e.target.value) }} />
                 <br />
                 <br />
-                <input type="password" name="password" required={true} placeholder="Password" onChange={(e) => { setPassword(e.target.value) }}/>
+                <input type="password" name="password" required={true} placeholder="Password" onChange={(e) => { setPassword(e.target.value) }} />
                 <br />
                 <br />
                 <br />
@@ -65,7 +68,7 @@ const LoginForm = () => {
             <p> Don't Have An Account? Sign Up <a href="/register">Here</a>!</p>
 
             <h1>{loginStatus}</h1>
-            { loginStatus && <button onClick={userAuthenticated}>Check If Authenticated</button> }
+            {loginStatus && <button onClick={userAuthenticated}>Check If Authenticated</button>}
         </div>
     )
 }

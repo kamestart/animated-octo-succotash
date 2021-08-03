@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 
-const CodeGame = () => {
+export const CodeGame = () => {
   return(
     <div>
       Manit
